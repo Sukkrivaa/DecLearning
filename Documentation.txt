@@ -1,0 +1,3 @@
+This is the documentation file. When making a pull request, make sure you modify this as well!!
+
+Currently this is empty but I hope some kind souls can get to fixing this so that development is easier and quicker!
