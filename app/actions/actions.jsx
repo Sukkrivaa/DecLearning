@@ -1,8 +1,16 @@
 const moment = require('moment');
+const actionStrings = require("./../../config/magicStrings").actionStrings;
 
-export var setTimeExample = () => {
+export var changeActiveSubtopic = (activeSubtopic) => {
   return {
-    type: "SET_TIME_EXAMPLE",
-    time: moment().unix()
+    type: actionStrings.activeStateActions.CHANGE_ACTIVE_SUBTOPIC,
+    activeSubtopic
   }
+}
+
+export var setInitialSubtopicsState = (subtopicArray) => {
+  return {
+		type: actionStrings.SubtopicListActions.SET_INITIAL_STATE,
+		subtopicArray
+	};
 }

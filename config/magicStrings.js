@@ -3,11 +3,17 @@
 
 module.exports = {
   actionStrings:  {
-
+    activeStateActions: {
+      CHANGE_ACTIVE_SUBTOPIC: "CHANGE_ACTIVE_SUBTOPIC"
+    },
+    SubtopicListActions: {
+      SET_INITIAL_STATE: "SET_INITIAL_STATE"
+    }
   },
   Routes: {
     apiRoutesString: {
       mongoRoutesString: {
+        getInitialSubtopics: "/api/getInitialSubtopics"
       }
     },
     authRoutesString: {

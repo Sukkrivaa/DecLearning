@@ -12,7 +12,9 @@ store.subscribe(() => {
 	var state = store.getState();
 	console.log(state); //Keep this in for debugging purposes
 });
-import Test from "./components/TestComponent.jsx"
+
+
+import SubtopicList from "./components/SubtopicList.jsx"
 
 
 axios.get(getCookieValue).then((res) => {
@@ -20,7 +22,7 @@ axios.get(getCookieValue).then((res) => {
 		<Provider store={store}>
     <div>
       <a href={authRoutesString.googleStrategyRoutesString.googleAuthInitial}> Sign in to edit and vote</a>
-      <Test />
+      <SubtopicList />
     </div>
 	</Provider>
     ,document.getElementById("app"))

@@ -32,6 +32,6 @@ app.use(express.static(__dirname+"/dist")); //react apps can only be used on the
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// require("./api/appRoutesIndex.js")(app);
+require("./api/appRoutesIndex")(app);
 
 module.exports = app
