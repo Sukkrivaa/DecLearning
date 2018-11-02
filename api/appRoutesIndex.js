@@ -3,6 +3,8 @@ const mongoRoutesString = require("./../config/magicStrings").Routes.apiRoutesSt
 
 const Index = (app) => {
   app.get(mongoRoutesString.getInitialSubtopics, MongoMethods.getInitialSubtopics);
+  app.post(mongoRoutesString.pushProblems, MongoMethods.pushProblems);
+  app.post(mongoRoutesString.pushRequests, MongoMethods.pushRequests);
 }
 
 module.exports = Index;

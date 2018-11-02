@@ -7,7 +7,7 @@ mongoose.connect(MongoDBURI, {useNewUrlParser: true});
 mongoose.connection.once("open", () => {
   console.log("Connection Successful");
 }).on("error", (e) => {
-  console.log("connection error: ", e);
+  throw new Error("MongoDB Connection Unsuccessful")
 });
 
 module.exports = mongoose.connection;

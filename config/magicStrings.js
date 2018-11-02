@@ -13,7 +13,9 @@ module.exports = {
   Routes: {
     apiRoutesString: {
       mongoRoutesString: {
-        getInitialSubtopics: "/api/getInitialSubtopics"
+        getInitialSubtopics: "/api/getInitialSubtopics",
+        pushProblems: "/api/pushProblems",
+        pushRequests: "/api/pushRequests"
       }
     },
     authRoutesString: {

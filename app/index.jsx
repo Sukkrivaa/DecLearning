@@ -14,15 +14,23 @@ store.subscribe(() => {
 });
 
 
-import SubtopicList from "./components/SubtopicList.jsx"
+import HomeContainer from "./components/HomeContainer.jsx"
+import 'style-loader!css-loader!./../node_modules/react-quill/dist/quill.snow.css'; //Do this for stylesheets that you don't create
+
+
+
+
 
 
 axios.get(getCookieValue).then((res) => {
+  console.log(res);
   ReactDOM.render(
 		<Provider store={store}>
     <div>
       <a href={authRoutesString.googleStrategyRoutesString.googleAuthInitial}> Sign in to edit and vote</a>
-      <SubtopicList />
+      <br /> {/*fix this whole section to conditionally render login or logout using a navigation bar  also make it such that when you log in, you automatically redirect to your last seen page not the homepage*/}
+      <a href={authRoutesString.generalRoutesString.logout}> Logout </a>
+      <HomeContainer loggedInUserData={res.data} />
     </div>
 	</Provider>
     ,document.getElementById("app"))
