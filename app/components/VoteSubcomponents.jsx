@@ -1,6 +1,9 @@
+//Not to be included in this version
+
 var React = require("react");
 var Component = React.Component;
 import CommentList from "./CommentList.jsx"
+import { func } from "prop-types";
 
 export default class VoteSubcomponents extends Component {
     //State transition problem here -fix tomorrow
@@ -8,7 +11,7 @@ export default class VoteSubcomponents extends Component {
     super(props);
     this.state = {slide: props.slide, type: "popular"}
     this.handleClick = this.handleClick.bind(this);
-    this.renderCommentLists =this.renderCommentLists.bind(this);
+    this.renderCommentLists = this.renderCommentLists.bind(this);
    } 
 
    componentWillReceiveProps(nextProps){
@@ -16,9 +19,12 @@ export default class VoteSubcomponents extends Component {
    }
 
    handleClick(type){
-       this.setState({
-           type
-       })
+       return function(){
+        this.setState({
+            type
+        })
+       }
+       
    }
 
    renderCommentLists(){
@@ -35,9 +41,9 @@ export default class VoteSubcomponents extends Component {
                     Resolved
                 </div>
             </div>
-            <CommentList type={"Popular"} slide={this.state.slide} loggedInUserStatus={this.props.loggedInUserStatus}/>
+            {/* <CommentList type={"Popular"} slide={this.state.slide} loggedInUserStatus={this.props.loggedInUserStatus}/>
             <CommentList type={"New"} slide={this.state.slide}  loggedInUserStatus={this.props.loggedInUserStatus}/>
-            <CommentList type={"Resolved"} slide={this.state.slide}  loggedInUserStatus={this.props.loggedInUserStatus}/>
+            <CommentList type={"Resolved"} slide={this.state.slide}  loggedInUserStatus={this.props.loggedInUserStatus}/> */}
         </div>
        )
    }

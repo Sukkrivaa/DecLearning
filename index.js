@@ -30,6 +30,7 @@ require("./api/authRoutes")(app);
 
 app.use(express.static(__dirname+"/dist")); //react apps can only be used on the main route
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require("./api/appRoutesIndex")(app);

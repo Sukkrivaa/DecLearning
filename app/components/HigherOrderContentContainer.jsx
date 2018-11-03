@@ -54,8 +54,7 @@ export default class HigherOrderContentContainer extends Component {
           <button onClick={this.handleContentButtonClick}>Content</button>
           <button onClick={this.handleProblemButtonClick}>problems</button>
           <EditableQuillEditor slide={"requests"} loggedInUserData={this.loggedInUserData} />
-          <VoteSubcomponents slide={"requests"} loggedInUserData={this.loggedInUserData}/>
-          */}
+          {/* <VoteSubcomponents slide={"requests"} loggedInUserData={this.loggedInUserData}/> */}
         </div>
       )
     }else if(slide === "problems"){
@@ -64,7 +63,7 @@ export default class HigherOrderContentContainer extends Component {
           <button onClick={this.handleContentButtonClick}>Content</button>
           <button onClick={this.handleRequestButtonClick}>requests</button>
           <EditableQuillEditor slide={"problems"} loggedInUserData={this.loggedInUserData}/>
-          <VoteSubcomponents slide={"problems"} loggedInUserData={this.loggedInUserData}/>
+          {/* <VoteSubcomponents slide={"problems"} loggedInUserData={this.loggedInUserData}/> */}
         </div>)
     }
   }
