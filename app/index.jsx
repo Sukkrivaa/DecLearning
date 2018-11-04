@@ -13,12 +13,14 @@ store.subscribe(() => {
 	console.log(state); //Keep this in for debugging purposes
 });
 
+
+import 'style-loader!css-loader!./../node_modules/react-quill/dist/quill.snow.css'; //Do this for stylesheets that you don't create
+import "style-loader!css-loader!./../node_modules/foundation-sites/dist/css/foundation.min.css";
+import "style-loader!css-loader!./styles/base.css";
+
 import NavigationBar from "./components/NavigationBar.jsx";
 import HomeContainer from "./components/HomeContainer.jsx";
 import QuillEditDocument from "./components/QuillEditDocument.jsx";
-import 'style-loader!css-loader!./../node_modules/react-quill/dist/quill.snow.css'; //Do this for stylesheets that you don't create
-
-
 
 
 

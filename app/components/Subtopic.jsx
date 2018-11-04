@@ -13,7 +13,7 @@ class Subtopic extends Component {
   render(){
     return (
       <div>
-        <h3 onClick={this.handleClick}>{this.text}</h3>
+        <h3 onClick={this.handleClick} >{this.text}</h3>
       </div>
     );
   }

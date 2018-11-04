@@ -22,7 +22,7 @@ class HomeContainer extends Component {
       return (
         <div>
           <SubtopicList />
-          <HigherOrderContentContainer loggedInUserData={this.loggedInUserData}/> Need to replace this with a higher order component that takes requests as well
+          <HigherOrderContentContainer loggedInUserData={this.loggedInUserData}/>
         </div>
 
     )

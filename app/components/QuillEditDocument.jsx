@@ -76,7 +76,7 @@ class QuillEditDocument extends Component {
                 {this.renderSubs()}
                 <ReactQuill value={this.state.delta}
                       onChange={this.handleChange} />
-                <div id="downloadLink">Download html</div>
+                <div id="downloadLink"><p>Download html</p></div>
             </div>
         )
     }
