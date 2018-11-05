@@ -28,7 +28,7 @@ class SubtopicList extends React.Component {
    var subtopics = this.props.subtopics;
    return subtopics.map((subtopic, index) => {
      return (
-       <Subtopic text={subtopic.subtopic} key={index} handleSubtopicClick={this.handleSubtopicClick(subtopic.subtopic)}/>
+        <Subtopic text={subtopic.subtopic} key={index} handleSubtopicClick={this.handleSubtopicClick(subtopic.subtopic)}/>
      );
    });
  }
@@ -36,8 +36,10 @@ class SubtopicList extends React.Component {
 
   render(){
     return (
-      <div>
-        {this.renderSubtopics()}
+      <div className={"side-nav-div"}>
+        <ul className={"side-nav"}>
+          {this.renderSubtopics()}
+        </ul>
       </div>
     )
   }

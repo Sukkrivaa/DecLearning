@@ -23,3 +23,17 @@
 .title-bar{
     border-bottom: 3px rgb(0,123,181) solid;
 }
+
+.side-nav-div{
+    padding: 2%;
+    border-right: 3px rgb(0,123,181) solid;
+    max-width: 22%;
+    height: 100%;
+    position: absolute;
+}
+
+#app{
+    height: 100% !important;
+    width: 100% !important;
+    position: absolute;
+}
