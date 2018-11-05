@@ -44,14 +44,15 @@ class EditableQuillEditor extends Component {
     if(this.state.loggedInUserData !== null && typeof this.state.loggedInUserData === "object"){
       return (
         <div>
+          <h3 className={"submit-problem"}>Submit {this.state.slide}</h3>
           <ReactQuill value={this.state.delta}
-                      onChange={this.handleChange} />
-          <button onClick={this.handlePush}> Submit {this.state.slide} </button>
+                      onChange={this.handleChange} className={"reactquill"}/>
+          <button onClick={this.handlePush} className={"button success submit-problem-button"}> Submit {this.state.slide} </button>
         </div>
       )
     }else{
       return (
-        <div><h3>You need to be logged in to submit {this.state.slide} </h3></div>
+        <div data-alert className={"panel callout"}>You need to be logged in to submit {this.state.slide}</div>
       )
     }
     

@@ -28,6 +28,7 @@ export default class NavigationBar extends Component {
                         </div>
                         <div className={"title-bar-right"}>
                             <Link to="/download" className={"Download-Link"}>Download Contents</Link>
+                            <Link to="/changes" className={"Download-Link"}>Changed</Link>
                             <a href={authRoutesString.generalRoutesString.logout} className={"auth-link"}>Logout</a>
                             
                         </div>

@@ -15,7 +15,9 @@ module.exports = {
       mongoRoutesString: {
         getInitialSubtopics: "/api/getInitialSubtopics",
         pushProblems: "/api/pushProblems",
-        pushRequests: "/api/pushRequests"
+        pushRequests: "/api/pushRequests",
+        pushChanges: "/api/pushChanges",
+        getNewChanges: "/api/getNewChanges"
       }
     },
     authRoutesString: {

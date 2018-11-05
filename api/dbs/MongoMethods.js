@@ -26,5 +26,22 @@ module.exports = {
     }).catch((e)=>{
       throw Error("Something went wrong when trying to push requests on the server side")
     })
+  },
+  pushChanges: (req,res) => {
+    const {subtopic, content, loggedInUserData} = req.body;
+    MongoPromise.pushChanges(subtopic,content, loggedInUserData).then(()=>{
+      console.log("Successfully pushed changes on the server side");
+      res.send("Success");
+    }).catch((e) => {
+      throw Error("Something went wrong when trying to push changes on the server side")
+    })
+  },
+  getNewChanges: (req,res) => {
+    MongoPromise.getNewChanges().then((result)=> {
+      console.log("Successfully got changes from Mongo");
+      res.send(result);
+    }).catch((e) => {
+      throw Error("Something went wrong when trying to get changes from Mongo")
+    })
   }
 }

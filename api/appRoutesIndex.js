@@ -5,6 +5,8 @@ const Index = (app) => {
   app.get(mongoRoutesString.getInitialSubtopics, MongoMethods.getInitialSubtopics);
   app.post(mongoRoutesString.pushProblems, MongoMethods.pushProblems);
   app.post(mongoRoutesString.pushRequests, MongoMethods.pushRequests);
+  app.post(mongoRoutesString.pushChanges, MongoMethods.pushChanges);
+  app.get(mongoRoutesString.getNewChanges, MongoMethods.getNewChanges);
 }
 
 module.exports = Index;

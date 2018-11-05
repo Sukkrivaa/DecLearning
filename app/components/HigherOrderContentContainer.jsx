@@ -40,9 +40,13 @@ export default class HigherOrderContentContainer extends Component {
     var slide = this.state.slide
     if(slide === "content"){
       return (
-        <div>
-          <button onClick={this.handleRequestButtonClick}>requests</button>
-          <button onClick={this.handleProblemButtonClick}>problems</button>
+        <div className={"higher-order-content-container-div"}>
+          <div>
+            <div className={"rp-container"}>
+              <button onClick={this.handleRequestButtonClick} className={"button rp-button"}>requests</button>
+              <button onClick={this.handleProblemButtonClick} className={"button alert rp-button"}>problems</button>
+            </div>
+          </div>
           <QuillEditor />
         </div>
     )
@@ -50,21 +54,26 @@ export default class HigherOrderContentContainer extends Component {
       //Pass down the user data here so that we can conditionally render
       //People will only see the upvote downvote buttons if they are logged in - else they just see normal textboxes
       return (
-        <div>
-          <button onClick={this.handleContentButtonClick}>Content</button>
-          <button onClick={this.handleProblemButtonClick}>problems</button>
-          <EditableQuillEditor slide={"requests"} loggedInUserData={this.loggedInUserData} />
+        <div className={"higher-order-content-container-div"}>
+          <div className={"rp-container"}>
+            <button onClick={this.handleContentButtonClick} className={"button rp-button"}>Content</button>
+            <button onClick={this.handleProblemButtonClick} className={"button alert rp-button"}>problems</button>
+            <EditableQuillEditor slide={"requests"} loggedInUserData={this.loggedInUserData} />
+          </div>
           {/* <VoteSubcomponents slide={"requests"} loggedInUserData={this.loggedInUserData}/> */}
         </div>
       )
     }else if(slide === "problems"){
       return (
-        <div>
-          <button onClick={this.handleContentButtonClick}>Content</button>
-          <button onClick={this.handleRequestButtonClick}>requests</button>
-          <EditableQuillEditor slide={"problems"} loggedInUserData={this.loggedInUserData}/>
-          {/* <VoteSubcomponents slide={"problems"} loggedInUserData={this.loggedInUserData}/> */}
-        </div>)
+        <div className={"higher-order-content-container-div"}>
+        <div className={"rp-container"}>
+          <button onClick={this.handleContentButtonClick} className={"button rp-button"}>Content</button>
+          <button onClick={this.handleRequestButtonClick} className={"button rp-button"}>requests</button>
+          <EditableQuillEditor slide={"problems"} loggedInUserData={this.loggedInUserData} />
+        </div>
+        {/* <VoteSubcomponents slide={"requests"} loggedInUserData={this.loggedInUserData}/> */}
+      </div>
+      )
     }
   }
 

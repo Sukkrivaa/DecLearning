@@ -5,6 +5,7 @@ import {QuillDeltaToHtmlConverter} from "quill-delta-to-html";
 import ReactQuill from "react-quill";
 var $ = require("jquery");
 var {Route, BrowserRouter, Link, hashHistory, Switch} = require("react-router-dom");
+import {pushChangesMongo} from "./../actions/mongoActions.jsx";
 
 
 
@@ -18,8 +19,16 @@ class QuillEditDocument extends Component {
         this.renderSubs = this.renderSubs.bind(this);
         this.changeActiveSub = this.changeActiveSub.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
+
+    handleClick(activeSubtopicEdit){
+        var self =  this
+        return function(){
+            self.props.dispatch(pushChangesMongo(activeSubtopicEdit.subtopic, self.state.delta, self.props.loggedInUserData));
+        }
+    }
 
     handleChange(content, delta, source, editor) {
         this.setState({ delta: content })
@@ -69,7 +78,7 @@ class QuillEditDocument extends Component {
 
         $("#downloadLink").click(function(){
             downloadInnerHtml(fileName, html);
-        });
+        }); //Put this outside to fix the issue where quill loses focus
         return (
             <div>
                 <Link to="/"><p>Content</p></Link>
@@ -77,6 +86,7 @@ class QuillEditDocument extends Component {
                 <ReactQuill value={this.state.delta}
                       onChange={this.handleChange} />
                 <div id="downloadLink"><p>Download html</p></div>
+                <div onClick={this.handleClick(this.state.activeSubtopicEdit)}><p>Push Changes</p></div>
             </div>
         )
     }

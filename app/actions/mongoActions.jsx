@@ -32,3 +32,15 @@ export function pushRequestsMongo(request, activeSubtopic){
     })
   }
 }
+
+export function pushChangesMongo(subtopic, content, loggedInUserData){
+  console.log("this ran too")
+  return () => {
+    axios.post(mongoRoutesString.pushChanges, {subtopic, content, loggedInUserData}).then(() => {
+      console.log("pushed changes successfully");
+    }).catch((e) => {
+      console.log("this ran")
+      throw new Error(e);
+    })
+  }
+}

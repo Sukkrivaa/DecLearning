@@ -37,3 +37,24 @@
     width: 100% !important;
     position: absolute;
 }
+
+/*Use media queries when things don't exactly look right for certain sizes*/
+.higher-order-content-container-div{
+    margin-left: 23%;
+    padding: 2% 2% 3% 0%;
+}
+
+.rp-button{
+    float: right;
+    margin: 1% 0% 1% 1%;
+}
+
+.submit-problem{
+    padding-top: 3%;
+}
+
+.submit-problem-button{
+    margin-top: 2%;
+}
+
+/*55-172-113*/
