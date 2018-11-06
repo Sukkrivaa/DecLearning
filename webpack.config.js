@@ -1,3 +1,6 @@
+const katex = require("katex");
+const webpack = require("webpack");
+
 module.exports = {
 	//Webapack Configuration
 	mode: "development",
@@ -7,6 +10,11 @@ module.exports = {
 		publicPath:"/",
 	},
 	devtool: "eval-source-map",
+	// plugins: [
+	// 	new webpack.ProvidePlugin({
+	// 		"window.katex": "katex"
+	// 	})
+	// ], //Included this in the cdn
 	module: {
 		rules: [
 			{

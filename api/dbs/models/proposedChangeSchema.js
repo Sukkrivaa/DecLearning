@@ -8,7 +8,8 @@ const proposedChangeSchema = new Schema({
 	time: Number,
     content: String,
     votes: Number,
-    subtopic: String
+    subtopic: String,
+    status: String,
 });
 
 const proposedChange= mongoose.model("proposedChange", proposedChangeSchema);

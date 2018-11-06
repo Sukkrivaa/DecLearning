@@ -7,6 +7,7 @@ const Index = (app) => {
   app.post(mongoRoutesString.pushRequests, MongoMethods.pushRequests);
   app.post(mongoRoutesString.pushChanges, MongoMethods.pushChanges);
   app.get(mongoRoutesString.getNewChanges, MongoMethods.getNewChanges);
+  app.get(mongoRoutesString.getResolvedChanges, MongoMethods.getResolvedChanges)
 }
 
 module.exports = Index;

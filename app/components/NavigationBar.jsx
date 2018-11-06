@@ -24,11 +24,13 @@ export default class NavigationBar extends Component {
                     <div className={"title-bar black-top-bar"} data-sticky data-options="marginTop:0;">
                         <div className={"title-bar-left"}>
                             <h4 className={"DecLearning-title"}>DecLearning</h4>
-                            <h5 className={"subject-title"}>The open source physics textbook</h5>
+                            <h5 className={"subject-title"}>The open source textbook</h5>
                         </div>
                         <div className={"title-bar-right"}>
-                            <Link to="/download" className={"Download-Link"}>Download Contents</Link>
-                            <Link to="/changes" className={"Download-Link"}>Changed</Link>
+                            <Link to="/download" className={"Download-Link"}>Download/Edit</Link>
+                            <Link to="/" className={"Content-Link"}>Content</Link>
+                            <Link to="/about" className={"Content-Link"}>About Us</Link>
+                            {/* <Link to="/changes" className={"Download-Link"}>Changed</Link> */}
                             <a href={authRoutesString.generalRoutesString.logout} className={"auth-link"}>Logout</a>
                             
                         </div>
@@ -45,7 +47,9 @@ export default class NavigationBar extends Component {
                             <h5 className={"subject-title"}>The open source textbook</h5>
                         </div>
                         <div className={"title-bar-right"}>
-                            <Link to="/download" className={"Download-Link"}>Download Contents</Link>
+                            <Link to="/download" className={"Download-Link"}>Download/Edit</Link>
+                            <Link to="/" className={"Content-Link"}>Content</Link>
+                            <Link to="/about" className={"Content-Link"}>About Us</Link>
                             <a href={authRoutesString.googleStrategyRoutesString.googleAuthInitial} className={"auth-link"}> Login </a>
                             
                         </div>

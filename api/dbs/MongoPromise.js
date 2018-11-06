@@ -59,7 +59,9 @@ const MongoPromise = {
         time: moment().unix(),
         subtopic,
         content,
-        personID: loggedInUserData.username
+        personID: loggedInUserData.username,
+        status: "Under-Review",
+        votes: 2
       })
 
       change.save().then((res)=> {
@@ -72,13 +74,24 @@ const MongoPromise = {
   },
   getNewChanges: () => {
       return new Promise((resolve, reject) => {
-        ProposedChange.find({}).then((res) => {
+        ProposedChange.find({status: "Under-Review"}).then((res) => {
           resolve(res);
         }).catch((e) => {
-          throw new Error("Something went wrong when getting changes");
           reject(e)
+          throw new Error("Something went wrong when getting changes");
         })
       })
+  },
+  getResolvedChanges: () => {
+    return new Promise((resolve, reject) => {
+      ProposedChange.find({status: "Resolved"}).then((res) => {
+        resolve(res);
+      }).catch((e) => {
+        reject(e);
+        throw new Error("Something went wrong when getting resolved changes")
+        
+      })
+    })
   }
 }
 

@@ -43,5 +43,13 @@ module.exports = {
     }).catch((e) => {
       throw Error("Something went wrong when trying to get changes from Mongo")
     })
+  },
+  getResolvedChanges: (req, res) => {
+    MongoPromise.getResolvedChanges().then((result) => {
+      console.log("Successfully got resolved changes from Mongo");
+      res.send(result);
+    }).catch((e) => {
+      throw new Error("Something went wrong when trying to get resolved changes from mongo");
+    })
   }
 }

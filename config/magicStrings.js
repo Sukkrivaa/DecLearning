@@ -17,7 +17,8 @@ module.exports = {
         pushProblems: "/api/pushProblems",
         pushRequests: "/api/pushRequests",
         pushChanges: "/api/pushChanges",
-        getNewChanges: "/api/getNewChanges"
+        getNewChanges: "/api/getNewChanges",
+        getResolvedChanges: "/api/getResolvedChanges"
       }
     },
     authRoutesString: {

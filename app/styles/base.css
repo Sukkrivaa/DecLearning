@@ -8,6 +8,11 @@
     display: inline-block;
 }
 
+.Content-Link{
+    display: inline-block;
+    margin: 2% 1% 2% 2%;
+}
+
 .auth-link{
     display: inline-block;
     margin: 2%;
@@ -56,5 +61,14 @@
 .submit-problem-button{
     margin-top: 2%;
 }
-
 /*55-172-113*/
+
+.editH3{
+    padding-top: 1%;
+}
+
+.AboutUs-Container{
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+}

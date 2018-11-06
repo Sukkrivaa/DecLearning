@@ -44,9 +44,10 @@ class EditableQuillEditor extends Component {
     if(this.state.loggedInUserData !== null && typeof this.state.loggedInUserData === "object"){
       return (
         <div>
-          <h3 className={"submit-problem"}>Submit {this.state.slide}</h3>
+          <h3 className={"submit-problem"}>Submit {this.state.slide} ({this.props.activeSubtopic})</h3>
           <ReactQuill value={this.state.delta}
-                      onChange={this.handleChange} className={"reactquill"}/>
+                      onChange={this.handleChange} className={"reactquill"} modules={EditableQuillEditor.modules}
+                      formats={EditableQuillEditor.formats}/>
           <button onClick={this.handlePush} className={"button success submit-problem-button"}> Submit {this.state.slide} </button>
         </div>
       )
@@ -73,7 +74,7 @@ EditableQuillEditor.modules = {
     ["bold", "italic", "underline", "strike", "blockquote"],
     [{"list": "ordered"}, {"list": "bullet"},
      {"indent": "-1"}, {"indent": "+1"}],
-    ["link", "image", "video"],
+    ["link", "image", "video", "formula"],
     ["clean"]
   ],
   clipboard: {
@@ -86,7 +87,7 @@ EditableQuillEditor.formats = [
   "header", "font", "size",
   "bold", "italic", "underline", "strike", "blockquote",
   "list", "bullet", "indent",
-  "link", "image", "video"
+  "link", "image", "video", "formula"
 ];
 
 
