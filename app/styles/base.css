@@ -27,6 +27,7 @@
 
 .title-bar{
     border-bottom: 3px rgb(0,123,181) solid;
+    /* white-space: nowrap; */
 }
 
 .side-nav-div{
@@ -35,6 +36,7 @@
     max-width: 22%;
     height: 100%;
     position: absolute;
+    overflow: scroll;
 }
 
 #app{
@@ -72,3 +74,21 @@
     width: 100%;
     padding: 5%;
 }
+
+body {
+    height: 100%;
+ }
+
+ html{
+     height: 100%;
+ }
+
+ .subject{
+     display: inline-block;
+     width: 40%;
+     padding: 3em;
+     border: black solid 2px;
+     text-align: center;
+     margin: 2.5% 5% 2.5% 5%;
+
+ }

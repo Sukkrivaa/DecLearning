@@ -21,8 +21,9 @@ class QuillEditDocument extends Component {
         this.changeActiveSub = this.changeActiveSub.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.contentArray = [];
+        this.contentArray = [props.subtopics[0].content];
         this.conditionalRender = this.conditionalRender.bind(this);
+        this.downloadHtml = this.downloadHtml.bind(this)
     }
 
 
@@ -44,11 +45,13 @@ class QuillEditDocument extends Component {
     changeActiveSub(subtopic){
         var self = this
         return function(){
-            alert("Are you sure you want to change the subtopic? All edits and changes will be lost")
-            self.setState({
-                activeSubtopicEdit: subtopic,
-                delta: JSON.parse(subtopic.content)
-            })
+            var ans = confirm("Are you sure you want to change the subtopic? All edits and changes will be lost")
+            if(ans){
+                self.setState({
+                    activeSubtopicEdit: subtopic,
+                    delta: JSON.parse(subtopic.content)
+                })
+            }
         }
          
     }
@@ -66,16 +69,41 @@ class QuillEditDocument extends Component {
         return array;
     }
 
+    downloadHtml(){
+        console.log("Hello")
+        function downloadInnerHtml(filename, html) {
+        var elHtml = html
+        var link = document.createElement('a');
+        var mimeType = 'text/html';
+
+        link.setAttribute('download', filename);
+        link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
+        link.click(); 
+        }
+
+        var fileName =  this.state.activeSubtopicEdit.subtopic+ '.html'
+        // var html = this.contentArray[this.contentArray.length-1];
+        // console.log(html);
+        // var converter = new QuillDeltaToHtmlConverter(deltaOps, {});
+        // var html =  converter.convert();
+        var self = this;
+
+        downloadInnerHtml(fileName, self.contentArray[self.contentArray.length-1]);
+            console.log("download successful")
+            alert("Content has been downloaded");
+            console.log(self.contentArray[self.contentArray.length-1])
+    }
+
     conditionalRender(){
         if(this.state.loggedInUserData !== null && typeof this.state.loggedInUserData === "object"){
             return (
                 <div className={"higher-order-content-container-div"}>
                     
                      <div className={"rp-container"}>
-                        <div id="downloadLink"><button className={"button rp-button"}>Download html</button></div>
+                        <div><button id="downloadLink" className={"button rp-button"} onClick={this.downloadHtml}>Download html</button></div>
                         <div onClick={this.handleClick(this.state.activeSubtopicEdit)}><button className={"button rp-button"}>Push Changes</button></div>
                      </div>
-                     <h3 className={"editH3"}>Edit Document</h3>
+                     <h3 className={"editH3"}>Edit Document ({this.state.activeSubtopicEdit.subtopic})</h3>
                      <ReactQuill value={this.state.delta}
                      onChange={this.handleChange} className={"reactquill editablequill"} modules={QuillEditDocument.modules}
                      formats={QuillEditDocument.formats}/>
@@ -93,26 +121,29 @@ class QuillEditDocument extends Component {
 
     render(){
 
-    function downloadInnerHtml(filename, html) {
-        var elHtml = html
-        var link = document.createElement('a');
-        var mimeType = 'text/html';
+    // function downloadInnerHtml(filename, html) {
+    //     var elHtml = html
+    //     var link = document.createElement('a');
+    //     var mimeType = 'text/html';
 
-        link.setAttribute('download', filename);
-        link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
-        link.click(); 
-    }
+    //     link.setAttribute('download', filename);
+    //     link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
+    //     link.click(); 
+    // }
 
-        var fileName =  this.state.activeSubtopicEdit.subtopic+ '.html'
-        // var html = this.contentArray[this.contentArray.length-1];
-        // console.log(html);
-        // var converter = new QuillDeltaToHtmlConverter(deltaOps, {});
-        // var html =  converter.convert();
-        var self = this;
+    //     var fileName =  this.state.activeSubtopicEdit.subtopic+ '.html'
+    //     // var html = this.contentArray[this.contentArray.length-1];
+    //     // console.log(html);
+    //     // var converter = new QuillDeltaToHtmlConverter(deltaOps, {});
+    //     // var html =  converter.convert();
+    //     var self = this;
 
-        $("#downloadLink").click(function(){
-            downloadInnerHtml(fileName, self.contentArray[self.contentArray.length-1]);
-        }); //Put this outside to fix the issue where quill loses focus
+    //     $("#downloadLink").click(function(){
+    //         console.log("this is running");
+    //         downloadInnerHtml(fileName, self.contentArray[self.contentArray.length-1]);
+    //         console.log("download successful")
+    //         alert("Content has been downloaded");
+    //     }); //Put this outside to fix the issue where quill loses focus
         return (
             <div> {/*Link to content in the navigation bar */}
                 <div className={"side-nav-div"}>
@@ -134,7 +165,7 @@ QuillEditDocument.modules = {
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{"list": "ordered"}, {"list": "bullet"},
        {"indent": "-1"}, {"indent": "+1"}],
-      ["link", "image", "video", "formula"],
+      ["link", "formula"],
       ["clean"]
     ],
     clipboard: {
@@ -147,7 +178,7 @@ QuillEditDocument.modules = {
     "header", "font", "size",
     "bold", "italic", "underline", "strike", "blockquote",
     "list", "bullet", "indent",
-    "link", "image", "video", "formula"
+    "link", "formula"
   ];
   
 

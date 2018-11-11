@@ -22,16 +22,19 @@ export default class NavigationBar extends Component {
             return (
                 <div data-sticky-container>
                     <div className={"title-bar black-top-bar"} data-sticky data-options="marginTop:0;">
-                        <div className={"title-bar-left"}>
-                            <h4 className={"DecLearning-title"}>DecLearning</h4>
-                            <h5 className={"subject-title"}>The open source textbook</h5>
+                        <div className={"title-bar-left leftbar"}>
+                            <h4 className={"DecLearning-title"}>PhysMap</h4>
+                            <h5 className={"subject-title"}>The open source physics textbook</h5>
                         </div>
-                        <div className={"title-bar-right"}>
-                            <Link to="/download" className={"Download-Link"}>Download/Edit</Link>
-                            <Link to="/" className={"Content-Link"}>Content</Link>
-                            <Link to="/about" className={"Content-Link"}>About Us</Link>
+                        <div className={"title-bar-right rightbar"}>
+                            <div className='row'>
+                            <Link to="/download" className={"Download-Link small-12 columns"}>Download</Link>
+                            <Link to="/" className={"Content-Link small-2 columns"}>Content</Link>
+                            <Link to="/about" className={"Content-Link small-2 columns"}>About Us</Link>
                             {/* <Link to="/changes" className={"Download-Link"}>Changed</Link> */}
-                            <a href={authRoutesString.generalRoutesString.logout} className={"auth-link"}>Logout</a>
+                            <a href={authRoutesString.generalRoutesString.logout} className={"auth-link small-2 columns end"}>Logout</a>
+                            </div>
+                            
                             
                         </div>
                     </div>

@@ -23,6 +23,7 @@ import HomeContainer from "./components/HomeContainer.jsx";
 import QuillEditDocument from "./components/QuillEditDocument.jsx";
 import proposedChangesComponent from "./components/proposedChangesComponent.jsx";
 import AboutUs from "./components/AboutUs.jsx";
+import LandingPage from "./components/LandingPage.jsx";
 
 
 
@@ -36,6 +37,7 @@ axios.get(getCookieValue).then(
         <div>
           <NavigationBar loggedInUserData={res.data}/>
           <Switch>
+            {/* <Route exact path="/" component={LandingPage}/> */}
             <Route exact path="/" render={(props) => <HomeContainer {...props} loggedInUserData={res.data} />} />
             <Route exact path="/download" render={(props) => <QuillEditDocument {...props} loggedInUserData={res.data} />} />
             {/* <Route exact path="/changes" component={proposedChangesComponent} /> */}

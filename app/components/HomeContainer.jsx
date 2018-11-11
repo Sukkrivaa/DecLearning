@@ -29,7 +29,7 @@ class HomeContainer extends Component {
 
   } else{
       return (
-        <div>
+        <div className={"hundredheight"}>
           <SubtopicList />
         </div>
       )
