@@ -69,7 +69,9 @@ export default class HigherOrderContentContainer extends Component {
         <div className={"rp-container"}>
           <button onClick={this.handleContentButtonClick} className={"button rp-button"}>Content</button>
           <button onClick={this.handleRequestButtonClick} className={"button rp-button"}>requests</button>
-          <EditableQuillEditor slide={"problems"} loggedInUserData={this.loggedInUserData} />
+          <div>
+            <EditableQuillEditor slide={"problems"} loggedInUserData={this.loggedInUserData} />
+          </div>
         </div>
         {/* <VoteSubcomponents slide={"requests"} loggedInUserData={this.loggedInUserData}/> */}
       </div>

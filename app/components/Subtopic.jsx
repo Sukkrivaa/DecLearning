@@ -13,7 +13,7 @@ class Subtopic extends Component {
   render(){
     return (
       <div>
-        <p onClick={this.handleClick} >{this.text}</p>
+        <p onClick={this.handleClick} className={"hoverSubtopic"}>{this.text}</p>
       </div>
     );
   }

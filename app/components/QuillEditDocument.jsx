@@ -113,7 +113,7 @@ class QuillEditDocument extends Component {
         }else{
             return (
                 <div className={"higher-order-content-container-div"}>
-                <div data-alert className={"panel callout"}>You need to be logged in to edit and download the documents</div>
+                <div data-alert className={"panel callout"}>You need to be logged in to edit and download the documents. Press the c</div>
                 </div>
             )
         }

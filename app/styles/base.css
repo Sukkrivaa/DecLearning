@@ -36,7 +36,8 @@
     max-width: 22%;
     height: 100%;
     position: absolute;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #app{
@@ -92,3 +93,17 @@ body {
      margin: 2.5% 5% 2.5% 5%;
 
  }
+
+ .loginstopper{
+   position: relative;
+   display: inline-block;
+   width: 80%;
+ }
+
+.ql-editor{
+  font-family: "Arial";
+}
+
+.hoverSubtopic:hover{
+    cursor: pointer;
+}

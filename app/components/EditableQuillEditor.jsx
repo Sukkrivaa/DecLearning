@@ -53,10 +53,10 @@ class EditableQuillEditor extends Component {
       )
     }else{
       return (
-        <div data-alert className={"panel callout"}>You need to be logged in to submit {this.state.slide}</div>
+        <div data-alert className={"panel callout loginstopper"}>You need to be logged in to submit {this.state.slide}. Click the "content" button in the navigation bar to get back to the content.</div>
       )
     }
-    
+
   }
 
   render() {
